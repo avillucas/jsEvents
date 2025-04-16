@@ -16,34 +16,52 @@
             <form>
                 <fieldset>
                     <caption>Mover Gato</caption>
-                    <button type="button"   id="ButtonStop" >Quieto</button>
-                    <button type="button"   id="ButtonMove" >Caminar</button>
-                    <button type="button"   id="ButtonStep" >Un paso </button>
+                    <button type="button" id="ButtonStop">Quieto</button>
+                    <button type="button" id="ButtonMove">Caminar</button>
+                    <button type="button" id="ButtonStep">Un paso </button>
                 </fieldset>
                 <fieldset id="backgroundSelector">
                     <caption>Modificar fondo</caption>
                     <label>
-                        <input type="radio" name="background" checked  value="city" />
+                        <input type="radio" name="background" checked
+                            value="city" />
                         Ciudad
                     </label>
                     <label>
+                        <input type="radio" name="background" value="mars" />
+                        Marte
+                    </label>
+                    <label>
                         <input type="radio" name="background" value="country" />
-                        Campo
+                        Bosque
                     </label>
                 </fieldset>
-                <fieldset>
+<!--                <fieldset>
                     <caption>Velocidad</caption>
-                    <input  id="ControlSpeed" type="number" min="1000"  max="12000000" step="1000"  id="ButtonStop"  />
+                    <select id="speedSelector">
+                        <option value="150" selected>10</option>
+                        <option value="130">20</option>
+                        <option value="100">50</option>
+                        <option value="80">80</option>
+                        <option value="70">100</option>
+                        <option value="30">150</option>
+                    </select>
                 </fieldset>
+-->
+
             </form>
         </aside>
         <section>
-            <div id="background" class="city" style="background-position-x:0;">
+            <div id="background" class="city"
+                style="background-position-x:0px;">
                 <div id="cat"></div>
             </div>
             <ul>
+                <!--
                 <li>Velocidad <span id="speedValue"></span> centimetros por segundo </li>
-                <li>Kilometros recorridos <span id="distanceValue"></span> kmts</li>
+                -->
+                <li>Kilometros recorridos <span id="distanceValue"></span>
+                    kmts</li>
             </ul>
         </section>
 
