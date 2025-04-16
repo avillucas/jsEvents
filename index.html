@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Events Example</title>
+        <!-- Custom styles for this template -->
+        <link href="./css/index.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <aside>
+            <form>
+                <fieldset>
+                    <caption>Mover Gato</caption>
+                    <button type="button"   id="ButtonStop" >Quieto</button>
+                    <button type="button"   id="ButtonMove" >Caminar</button>
+                    <button type="button"   id="ButtonStep" >Un paso </button>
+                </fieldset>
+                <fieldset id="backgroundSelector">
+                    <caption>Modificar fondo</caption>
+                    <label>
+                        <input type="radio" name="background" checked  value="city" />
+                        Ciudad
+                    </label>
+                    <label>
+                        <input type="radio" name="background" value="country" />
+                        Campo
+                    </label>
+                </fieldset>
+            </form>
+        </aside>
+        <section>
+            <div id="background" class="city" style="background-position-x:0;">
+                <div id="cat"></div>
+            </div>
+            <ul>
+                <li>Velocidad <span id="speedValue"></span> pixeles por segundo</li>
+                <li>Kilometros recorridos <span id="distanceValue"></span> kmts</li>
+            </ul>
+        </section>
+
+        <aside>
+
+        </aside>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
