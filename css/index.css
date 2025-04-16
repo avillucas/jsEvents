@@ -1,0 +1,33 @@
+#background {
+    width: 1000px;
+    height: 500px;
+    display: block;
+    background-size: contain;
+    background-position-x: 0;
+    background-position-y: center;
+    background-image: url(../img/city.jpg);
+    position: relative;
+}
+
+#background.city {
+    background-image: url('../img/city.jpg');
+    background-size: contain;
+}
+
+#background.country {
+    background-image: url('../img/country.jpg');
+    background-size: 1238px;
+}
+
+#cat {
+    width: 230px;
+    height: 115px;
+    display: block;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-image: url(../img/cat.png);
+    position: absolute;
+    bottom: 0;
+    left: 385px;
+    background-size: 680px;
+}
