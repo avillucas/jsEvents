@@ -12,15 +12,11 @@ var backgroundFrameWith = 10; // mtrs
 function animate() {
     const position = document.getElementById('cat').style.backgroundPositionY.replace('px', '');
     const nextPosition = (position <= -1243) ? 0 : parseInt(position) - frameWidth;
-    console.log('Cat nextPosition', nextPosition);
     document.getElementById('cat').style.backgroundPositionY = nextPosition + 'px';
-    const stepEvent = new Event("catStep");
-    document.dispatchEvent(stepEvent);
     distance += distance_step;
     updateDistance(distance);
     const backgroundPosition = document.getElementById('background').style.backgroundPositionX.replace('px', '');
     const nextBackgroundPosition = Math.round( parseInt(backgroundPosition) + backgroundFrameWith);
-    console.log('Background nextPosition', nextBackgroundPosition);
     document.getElementById('background').style.backgroundPositionX = nextBackgroundPosition + 'px';
 }
 
@@ -30,11 +26,12 @@ function updateDistance(distance) {
 function move(direction) {
     if (timer_id) stop();
     speed = period / 1000;
+    const catWalking = new Event("catWalking");
+    document.dispatchEvent(catWalking);
     timer_id = setInterval(animate, period);
 }
 
 function stop() {
-    console.log('stop');
     clearInterval(timer_id);
     timer_id = null;
     const stopEvent = new Event("catStops");
@@ -42,7 +39,6 @@ function stop() {
 }
 
 function init() {
-    console.log('init');
     sprite = document.getElementById('cat');
     document.getElementById('cat').style.backgroundPositionY = 0;
     document.getElementById('cat').style.backgroundPositionX = 0;
@@ -72,15 +68,23 @@ function changeSpeed() {
 
 function onBackgroundChange() {
     const backgroundClassName = document.querySelector('#backgroundSelector input:checked').value;
-    console.log('background', backgroundClassName);
     document.getElementById('background').className = backgroundClassName;
 }
 
+function onCatStops() {
+    alert('El gato se detuvo' );
+}
+function onCatWalking() {
+    console.log('El gato esta caminando' );
+}
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('ButtonStop').addEventListener('click', actionStop, false);
     document.getElementById('ButtonMove').addEventListener('click', actionMove, false);
     document.getElementById('ButtonStep').addEventListener('click', actionStep, false);
-  //  document.getElementById('speedSelector').addEventListener('change', changeSpeed, false);
+    document.addEventListener('catStops', onCatStops, false);
+    document.addEventListener('catWalking', onCatWalking, false);
+ 
+    //  document.getElementById('speedSelector').addEventListener('change', changeSpeed, false);
     const backgrounds = document.querySelectorAll('#backgroundSelector input');
     backgrounds.forEach(
         function (background) {
